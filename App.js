@@ -1,20 +1,56 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { CardStyleInterpolators, createStackNavigator } from "@react-navigation/stack";
+import Signup from "./screens/Signup";
+import Welcome from "./screens/Welcome";
+import Home from "./screens/HomeScreen/Home";
+import Login from "./screens/Login";
+import { closeConfig, config, HomeTransition, ProfileTransition, WelcomTransition } from "./components/Animation";
+const Stack = createStackNavigator();
 
-export default function App() {
+const AppStack = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <Stack.Navigator screenOptions={{ ...HomeTransition, headerShown: false }}>
+        <Stack.Screen name="Welcome" component={Welcome} options={{ ...WelcomTransition }} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Signup" component={Signup} />
+      </Stack.Navigator>
+    </>
   );
-}
+};
+const App = () => {
+  return (
+    <NavigationContainer>
+      <AppStack />
+    </NavigationContainer>
+  );
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {/* <Stack.Screen name="Home" component={Home} options={{ ...HomeTransition }} /> */}
+        {/* <Stack.Screen name="Verify" component={Verify} options={{ ...ProfileTransition }} />
+        <Stack.Screen name="ScanQR" component={ScanQR} options={{ ...HomeTransition }} />
+        <Stack.Screen name="RentalRing" component={RentalRing} options={{ ...ProfileTransition }} />
+        <Stack.Screen name="Notification" component={NofiticationSC} options={{ ...HomeTransition }} />
+        <Stack.Screen name="Profile" component={Profile} options={{ ...HomeTransition }} />
+        <Stack.Screen name="ReportPage" component={ReportPage} />
+        <Stack.Screen name="Confirm" component={Confirm} options={{ ...ProfileTransition }} /> */}
