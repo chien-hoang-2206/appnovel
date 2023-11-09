@@ -6,7 +6,7 @@
   - npm install -g expo-cli --force ( máy ai có từng cài expo app rồi thì ko thêm lệnh này, đả đảo mấy thằng ifan ) 
   - npm i
 # Chạy code
-  - expo start
+  - npx expo start
     ## Nếu chạy app dùng điện thoại thật ( khuyến khích vì tốc độ reload nhanh) 
   - Lên chplay cài app ExpoGo
   - Bật app trên điện thoại và quét mã.
